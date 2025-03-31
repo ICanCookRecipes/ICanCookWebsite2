@@ -58,6 +58,7 @@
       display: flex;
       flex-direction: column;
       background: linear-gradient(to right, #FF6F61, #6B5B95); /* Fallback gradient */
+      background-image: url('images/hero-image.png'); /* Default image */
     }
 
     .hero-text {
@@ -119,7 +120,6 @@
         background-size: contain;
         background-position: 70% bottom; /* Focus on the right side of the image */
         background-repeat: no-repeat;
-        background-image: url('images/screenshot1-mobile.png'); /* Use mobile-specific images if available */
       }
 
       /* Adjust hero section height and background for mobile */
@@ -128,7 +128,6 @@
         background-size: contain;
         background-position: 70% bottom;
         background-repeat: no-repeat;
-        background-image: url('images/hero-image-mobile.png'); /* Use a mobile-specific image if available */
       }
 
       .hero-text {
@@ -183,24 +182,12 @@
         font-size: 0.875rem;
         padding: 0.5rem;
       }
-
-      /* Apply mobile-specific images for other feature sections */
-      .feature:nth-child(2) {
-        background-image: url('images/screenshot1-mobile.png');
-      }
-      .feature:nth-child(3) {
-        background-image: url('images/screenshot2-mobile.png');
-      }
-      .feature:nth-child(4) {
-        background-image: url('images/screenshot3-mobile.png');
-      }
     }
 
     @media (min-width: 769px) {
       .hero-section {
         background-size: cover;
         background-position: center;
-        background-image: url('images/hero-image.png');
       }
 
       .hero-text h1 {
@@ -220,17 +207,6 @@
         position: static;
         transform: none;
       }
-
-      /* Use original images for desktop */
-      .feature:nth-child(2) {
-        background-image: url('images/screenshot1.png');
-      }
-      .feature:nth-child(3) {
-        background-image: url('images/screenshot2.png');
-      }
-      .feature:nth-child(4) {
-        background-image: url('images/screenshot3.png');
-      }
     }
   </style>
 </head>
@@ -248,13 +224,13 @@
   </section>
 
   <!-- Feature Sections with Screenshots -->
-  <section class="h-screen bg-cover bg-center feature">
+  <section class="h-screen bg-cover bg-center feature" style="background-image: url('images/screenshot1.png')">
     <div class="content text-white text-center pt-40"></div>
   </section>
-  <section class="h-screen bg-cover bg-center feature">
+  <section class="h-screen bg-cover bg-center feature" style="background-image: url('images/screenshot2.png')">
     <div class="content text-white text-center pt-40"></div>
   </section>
-  <section class="h-screen bg-cover bg-center feature">
+  <section class="h-screen bg-cover bg-center feature" style="background-image: url('images/screenshot3.png')">
     <div class="content text-white text-center pt-40"></div>
   </section>
 
