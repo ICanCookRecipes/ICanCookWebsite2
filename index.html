@@ -12,25 +12,23 @@
       background-size: cover;
       background-position: center;
     }
-    /* Disable parallax on mobile for better performance */
-    @media (max-width: 768px) {
-      .feature {
-        background-attachment: scroll;
-      }
-    }
+
     /* Ensure smooth scrolling and no overflow */
     html, body {
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-      scroll-behavior: smooth; /* Optional: Adds smooth scrolling for non-GSAP interactions */
+      scroll-behavior: smooth;
     }
+
     .bg-cream {
       background-color: #FDF6E9;
     }
+
     .scroll-container {
       width: 100%;
     }
+
     .panel {
       width: 100%;
       height: 100vh;
@@ -39,60 +37,129 @@
       will-change: transform, opacity;
       position: relative;
     }
+
     .content {
       width: 100%;
       height: 100%;
     }
+
     /* Ensure image panels have a fallback background */
     .panel:not([data-index="0"]):not([data-index="4"]) {
-      background-color: #ccc; /* Fallback if images don’t load */
+      background-color: #ccc;
     }
-    /* Style for the hero section to match the image layout and ensure clarity */
+
+    /* Style for the hero section */
     .hero-section {
       height: 100vh;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      image-rendering: auto; /* Prevents over-smoothing */
-      -webkit-background-size: cover; /* For Safari compatibility */
-      -moz-background-size: cover; /* For Firefox compatibility */
-      -o-background-size: cover; /* For Opera compatibility */
-    }
-    .hero-content {
-      position: relative;
-      top: 81%; /* Adjusts the content to start lower, matching the image */
-      text-align: center;
-    }
-    .explore-now-btn {
-      position: absolute;
-      bottom: 15%; /* Positions the button ~75% down the hero section (matches image) */
-      left: 15%;
-      transform: translateX(-50%); /* Centers the button horizontally */
-      padding: 12px 24px;
-      background-color: #3B82F6; /* Blue color matching the image */
-      color: white;
-      border-radius: 9999px; /* Fully rounded button */
-      font-size: 1.25rem; /* Matches the size in the image */
-      font-weight: 500;
+      image-rendering: auto;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
     }
 
-    .download-now-btn {
-      position: absolute;
-      bottom: 15%; /* Positions the button ~75% down the hero section (matches image) */
-      left: 25%;
-      transform: translateX(-50%); /* Centers the button horizontally */
+    .hero-content {
+      position: relative;
+      top: 81%;
+      text-align: center;
+    }
+
+    .explore-now-btn, .download-now-btn {
       padding: 12px 24px;
-      background-color: #3B82F6; /* Blue color matching the image */
+      background-color: #3B82F6;
       color: white;
-      border-radius: 9999px; /* Fully rounded button */
-      font-size: 1.25rem; /* Matches the size in the image */
+      border-radius: 9999px;
+      font-size: 1.25rem;
       font-weight: 500;
     }
 
     /* High-DPI screens */
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       .hero-section {
-        background-image: url('images/hero-image-2x.jpg'); /* Serve a 2x resolution image for Retina displays */
+        background-image: url('images/hero-image-2x.jpg');
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      /* Disable parallax on mobile for better performance */
+      .feature {
+        background-attachment: scroll;
+      }
+
+      /* Adjust hero section height for mobile */
+      .hero-section {
+        height: 70vh;
+      }
+
+      /* Adjust hero content positioning */
+      .hero-content {
+        top: 60%;
+      }
+
+      /* Stack buttons vertically on mobile */
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .explore-now-btn, .download-now-btn {
+        position: static;
+        transform: none;
+        font-size: 1rem;
+        padding: 10px 20px;
+        width: 80%;
+        max-width: 200px;
+      }
+
+      /* Adjust feature section height for mobile */
+      .feature {
+        height: 50vh;
+      }
+
+      /* Adjust content padding for feature sections */
+      .content {
+        padding-top: 20px;
+      }
+
+      /* Adjust sign-up section padding and form width */
+      #signup-section {
+        padding: 1rem;
+      }
+
+      #signup-section .max-w-md {
+        max-width: 100%;
+        padding: 1rem;
+      }
+
+      #signup-section h2 {
+        font-size: 1.5rem;
+      }
+
+      #signup-section input,
+      #signup-section button {
+        font-size: 0.875rem;
+        padding: 0.5rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .explore-now-btn {
+        position: absolute;
+        bottom: 15%;
+        left: 15%;
+        transform: translateX(-50%);
+      }
+
+      .download-now-btn {
+        position: absolute;
+        bottom: 15%;
+        left: 25%;
+        transform: translateX(-50%);
       }
     }
   </style>
@@ -108,88 +175,84 @@
 
   <!-- Feature Sections with Screenshots -->
   <section class="h-screen bg-cover bg-center feature" style="background-image: url('images/screenshot1.png')">
-    </div>
+    <div class="content text-white text-center pt-40"></div>
   </section>
   <section class="h-screen bg-cover bg-center feature" style="background-image: url('images/screenshot2.png')">
-    <div class="content text-white text-center pt-40">
-    </div>
+    <div class="content text-white text-center pt-40"></div>
   </section>
   <section class="h-screen bg-cover bg-center feature" style="background-image: url('images/screenshot3.png')">
-    <div class="content text-white text-center pt-40">
-    </div>
+    <div class="content text-white text-center pt-40"></div>
   </section>
 
   <!-- Sign-Up Section -->
-  <!-- Sign-Up Section -->
-<!-- Sign-Up Section -->
-<section id="signup-section" class="h-screen flex items-center justify-center" style="background: linear-gradient(to right, #FF6F61, #6B5B95);">
-  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-    <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Sign Up for Updates</h2>
-    <form action="https://formspree.io/f/yourformid" method="POST" enctype="multipart/form-data">
-      <!-- Full Name -->
-      <div class="mb-4">
-        <label for="full-name" class="block text-gray-700 font-medium mb-2">Full Name</label>
-        <input 
-          type="text" 
-          id="full-name" 
-          name="full-name" 
-          placeholder="John Doe" 
-          required 
-          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-      </div>
+  <section id="signup-section" class="h-screen flex items-center justify-center" style="background: linear-gradient(to right, #FF6F61, #6B5B95);">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Sign Up for Updates</h2>
+      <form action="https://formspree.io/f/yourformid" method="POST" enctype="multipart/form-data">
+        <!-- Full Name -->
+        <div class="mb-4">
+          <label for="full-name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+          <input 
+            type="text" 
+            id="full-name" 
+            name="full-name" 
+            placeholder="John Doe" 
+            required 
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
 
-      <!-- Phone Number -->
-      <div class="mb-4">
-        <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
-        <input 
-          type="tel" 
-          id="phone" 
-          name="phone" 
-          placeholder="(123) 456-7890" 
-          required 
-          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
-          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-        <small class="text-gray-500">Format: 123-456-7890</small>
-      </div>
+        <!-- Phone Number -->
+        <div class="mb-4">
+          <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+          <input 
+            type="tel" 
+            id="phone" 
+            name="phone" 
+            placeholder="(123) 456-7890" 
+            required 
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+          <small class="text-gray-500">Format: 123-456-7890</small>
+        </div>
 
-      <!-- Email Address -->
-      <div class="mb-4">
-        <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          placeholder="you@example.com" 
-          required 
-          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-      </div>
+        <!-- Email Address -->
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="you@example.com" 
+            required 
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+        </div>
 
-      <!-- Driver License Upload -->
-      <div class="mb-6">
-        <label for="driver-license" class="block text-gray-700 font-medium mb-2">Driver's License (Image)</label>
-        <input 
-          type="file" 
-          id="driver-license" 
-          name="driver-license" 
-          accept="image/*" 
-          required 
-          class="w-full p-3 border border-gray-300 rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-        >
-      </div>
+        <!-- Driver License Upload -->
+        <div class="mb-6">
+          <label for="driver-license" class="block text-gray-700 font-medium mb-2">Driver's License (Image)</label>
+          <input 
+            type="file" 
+            id="driver-license" 
+            name="driver-license" 
+            accept="image/*" 
+            required 
+            class="w-full p-3 border border-gray-300 rounded-lg file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+          >
+        </div>
 
-      <!-- Submit Button -->
-      <button 
-        type="submit" 
-        class="w-full p-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition duration-300"
-      >
-        Submit
-      </button>
-    </form>
-  </div>
-</section>
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          class="w-full p-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition duration-300"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </section>
 
   <!-- Load GSAP, ScrollTrigger, and ScrollTo -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
@@ -200,24 +263,48 @@
     gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
     // Animate each feature section
-    
+    document.querySelectorAll('.feature').forEach((section) => {
+      gsap.fromTo(
+        section,
+        { scale: 1 },
+        {
+          scale: 1.2,
+          ease: 'power1.inOut',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            scrub: true,
+          },
+        }
+      );
 
+      gsap.from(section.querySelector('.content'), {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 80%',
+          end: 'bottom 50%',
+          scrub: true,
+        },
+      });
+    });
 
     // Add click event to the "Explore Now" button
     document.getElementById('explore-now').addEventListener('click', () => {
       gsap.to(window, {
-        duration: 1, // Duration of the scroll animation
-        scrollTo: { y: "#signup-section" }, // Scroll to the Sign-Up section
-        ease: "power2.inOut" // Smooth easing
+        duration: 1,
+        scrollTo: { y: "#signup-section" },
+        ease: "power2.inOut"
       });
     });
 
-    // Add click event to the "Explore Now" button to open a link in a new tab
+    // Add click event to the "Download Now" button
     document.getElementById('download-now').addEventListener('click', () => {
-      window.open('https://apps.apple.com/us/app/icancookfood/id6593659930', '_blank'); // Opens the link in a new tab
+      window.open('https://apps.apple.com/us/app/icancookfood/id6593659930', '_blank');
     });
-
-
   </script>
   <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'927a3c8f79a48bba',t:'MTc0MzE5NzUwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
