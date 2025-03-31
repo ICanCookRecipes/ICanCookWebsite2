@@ -48,6 +48,13 @@
       background-color: #ccc;
     }
 
+    /* Remove white space between sections */
+    section {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh; /* Ensure sections take up at least the viewport height */
+    }
+
     /* Style for the hero section */
     .hero-section {
       height: 100vh;
@@ -128,6 +135,7 @@
         background-size: contain;
         background-position: 70% bottom;
         background-repeat: no-repeat;
+        background-image: url('images/hero-image.png'); /* Ensure the same image is used */
       }
 
       .hero-text {
@@ -156,6 +164,7 @@
       /* Adjust feature section height for mobile */
       .feature {
         height: 50vh;
+        min-height: 50vh; /* Ensure no white space */
       }
 
       /* Adjust content padding for feature sections */
@@ -166,6 +175,7 @@
       /* Adjust sign-up section padding and form width */
       #signup-section {
         padding: 1rem;
+        min-height: 100vh;
       }
 
       #signup-section .max-w-md {
@@ -207,6 +217,11 @@
         position: static;
         transform: none;
       }
+
+      .feature {
+        height: 100vh;
+        min-height: 100vh; /* Ensure no white space */
+      }
     }
   </style>
 </head>
@@ -224,18 +239,18 @@
   </section>
 
   <!-- Feature Sections with Screenshots -->
-  <section class="h-screen bg-cover bg-center feature" style="background-image: url('images/screenshot1.png')">
+  <section class="feature" style="background-image: url('images/screenshot1.png')">
     <div class="content text-white text-center pt-40"></div>
   </section>
-  <section class="h-screen bg-cover bg-center feature" style="background-image: url('images/screenshot2.png')">
+  <section class="feature" style="background-image: url('images/screenshot2.png')">
     <div class="content text-white text-center pt-40"></div>
   </section>
-  <section class="h-screen bg-cover bg-center feature" style="background-image: url('images/screenshot3.png')">
+  <section class="feature" style="background-image: url('images/screenshot3.png')">
     <div class="content text-white text-center pt-40"></div>
   </section>
 
   <!-- Sign-Up Section -->
-  <section id="signup-section" class="h-screen flex items-center justify-center" style="background: linear-gradient(to right, #FF6F61, #6B5B95);">
+  <section id="signup-section" class="flex items-center justify-center" style="background: linear-gradient(to right, #FF6F61, #6B5B95);">
     <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
       <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Sign Up for Updates</h2>
       <form action="https://formspree.io/f/yourformid" method="POST" enctype="multipart/form-data">
