@@ -1,0 +1,41 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  .bg-cream {
+    background-color: #FDF6E9;
+  }
+  
+  .scroll-container {
+    width: 100%;
+  }
+  
+  .panel {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    will-change: transform, opacity;
+    position: relative;
+  }
+  
+  .content {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Ensure image panels have a fallback background */
+  .panel:not([data-index="0"]):not([data-index="4"]) {
+    background-color: #ccc; /* Fallback if images don’t load */
+  }
+
+
+  @media (max-width: 768px) {
+    .explore-now-btn {
+      bottom: 10%; /* Adjust for smaller screens */
+      font-size: 1rem; /* Smaller font size */
+      padding: 8px 16px; /* Smaller padding */
+    }
+  }
