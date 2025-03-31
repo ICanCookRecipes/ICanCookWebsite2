@@ -57,7 +57,6 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       background: linear-gradient(to right, #FF6F61, #6B5B95); /* Fallback gradient */
     }
 
@@ -85,11 +84,12 @@
     }
 
     .hero-content {
+      position: absolute;
+      top: 25%; /* Adjust this based on the height of hero-text */
+      left: 5%;
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 1rem;
-      padding-bottom: 2rem;
     }
 
     .explore-now-btn, .download-now-btn {
@@ -116,14 +116,19 @@
       /* Disable parallax on mobile for better performance */
       .feature {
         background-attachment: scroll;
+        background-size: contain;
+        background-position: 70% bottom; /* Focus on the right side of the image */
+        background-repeat: no-repeat;
+        background-image: url('images/screenshot1-mobile.png'); /* Use mobile-specific images if available */
       }
 
       /* Adjust hero section height and background for mobile */
       .hero-section {
         height: 100vh;
         background-size: contain;
-        background-position: bottom right;
+        background-position: 70% bottom;
         background-repeat: no-repeat;
+        background-image: url('images/hero-image-mobile.png'); /* Use a mobile-specific image if available */
       }
 
       .hero-text {
@@ -140,7 +145,8 @@
       }
 
       .hero-content {
-        padding-bottom: 10%;
+        top: 20%; /* Adjust to position buttons below the tagline on mobile */
+        left: 5%;
       }
 
       .explore-now-btn, .download-now-btn {
@@ -177,12 +183,24 @@
         font-size: 0.875rem;
         padding: 0.5rem;
       }
+
+      /* Apply mobile-specific images for other feature sections */
+      .feature:nth-child(2) {
+        background-image: url('images/screenshot1-mobile.png');
+      }
+      .feature:nth-child(3) {
+        background-image: url('images/screenshot2-mobile.png');
+      }
+      .feature:nth-child(4) {
+        background-image: url('images/screenshot3-mobile.png');
+      }
     }
 
     @media (min-width: 769px) {
       .hero-section {
         background-size: cover;
         background-position: center;
+        background-image: url('images/hero-image.png');
       }
 
       .hero-text h1 {
@@ -193,25 +211,32 @@
         font-size: 1.25rem;
       }
 
-      .explore-now-btn {
-        position: absolute;
-        bottom: 15%;
-        left: 15%;
-        transform: translateX(-50%);
+      .hero-content {
+        top: 30%; /* Adjust to position buttons below the tagline on desktop */
+        left: 5%;
       }
 
-      .download-now-btn {
-        position: absolute;
-        bottom: 15%;
-        left: 25%;
-        transform: translateX(-50%);
+      .explore-now-btn, .download-now-btn {
+        position: static;
+        transform: none;
+      }
+
+      /* Use original images for desktop */
+      .feature:nth-child(2) {
+        background-image: url('images/screenshot1.png');
+      }
+      .feature:nth-child(3) {
+        background-image: url('images/screenshot2.png');
+      }
+      .feature:nth-child(4) {
+        background-image: url('images/screenshot3.png');
       }
     }
   </style>
 </head>
 <body class="bg-cream">
   <!-- Hero Section -->
-  <section class="hero-section" style="background-image: url('images/hero-image.png')">
+  <section class="hero-section">
     <div class="hero-text">
       <h1>ICan<span>Cook</span> App</h1>
       <p>Peer to Peer Food Marketplace for food lovers around the world.</p>
@@ -223,13 +248,13 @@
   </section>
 
   <!-- Feature Sections with Screenshots -->
-  <section class="h-screen bg-cover bg-center feature" style="background-image: url('images/screenshot1.png')">
+  <section class="h-screen bg-cover bg-center feature">
     <div class="content text-white text-center pt-40"></div>
   </section>
-  <section class="h-screen bg-cover bg-center feature" style="background-image: url('images/screenshot2.png')">
+  <section class="h-screen bg-cover bg-center feature">
     <div class="content text-white text-center pt-40"></div>
   </section>
-  <section class="h-screen bg-cover bg-center feature" style="background-image: url('images/screenshot3.png')">
+  <section class="h-screen bg-cover bg-center feature">
     <div class="content text-white text-center pt-40"></div>
   </section>
 
