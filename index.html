@@ -54,16 +54,42 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      image-rendering: auto;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(to right, #FF6F61, #6B5B95); /* Fallback gradient */
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 10%;
+      left: 5%;
+      color: black;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .hero-text h1 span {
+      color: #3B82F6;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      color: white;
+      margin-top: 0.5rem;
     }
 
     .hero-content {
-      position: relative;
-      top: 81%;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 2rem;
     }
 
     .explore-now-btn, .download-now-btn {
@@ -73,6 +99,9 @@
       border-radius: 9999px;
       font-size: 1.25rem;
       font-weight: 500;
+      width: 80%;
+      max-width: 200px;
+      text-align: center;
     }
 
     /* High-DPI screens */
@@ -89,31 +118,34 @@
         background-attachment: scroll;
       }
 
-      /* Adjust hero section height for mobile */
+      /* Adjust hero section height and background for mobile */
       .hero-section {
-        height: 70vh;
+        height: 100vh;
+        background-size: contain;
+        background-position: bottom right;
+        background-repeat: no-repeat;
       }
 
-      /* Adjust hero content positioning */
-      .hero-content {
-        top: 60%;
+      .hero-text {
+        top: 5%;
+        left: 5%;
       }
 
-      /* Stack buttons vertically on mobile */
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-text p {
+        font-size: 0.875rem;
+      }
+
       .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+        padding-bottom: 10%;
       }
 
       .explore-now-btn, .download-now-btn {
-        position: static;
-        transform: none;
         font-size: 1rem;
         padding: 10px 20px;
-        width: 80%;
-        max-width: 200px;
       }
 
       /* Adjust feature section height for mobile */
@@ -148,6 +180,19 @@
     }
 
     @media (min-width: 769px) {
+      .hero-section {
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero-text h1 {
+        font-size: 4rem;
+      }
+
+      .hero-text p {
+        font-size: 1.25rem;
+      }
+
       .explore-now-btn {
         position: absolute;
         bottom: 15%;
@@ -167,6 +212,10 @@
 <body class="bg-cream">
   <!-- Hero Section -->
   <section class="hero-section" style="background-image: url('images/hero-image.png')">
+    <div class="hero-text">
+      <h1>ICan<span>Cook</span> App</h1>
+      <p>Peer to Peer Food Marketplace for food lovers around the world.</p>
+    </div>
     <div class="hero-content text-white">
       <button id="explore-now" class="explore-now-btn">Referral</button>
       <button id="download-now" class="download-now-btn">Download Now</button>
